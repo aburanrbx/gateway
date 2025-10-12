@@ -62,6 +62,8 @@ func buildIRHTTP2Settings(http2Settings *egv1a1.HTTP2Settings) (*ir.HTTP2Setting
 	}
 
 	http2.MaxConcurrentStreams = http2Settings.MaxConcurrentStreams
+	http2.MaxOutboundFrames = http2Settings.MaxOutboundFrames
+	http2.MaxOutboundControlFrames = http2Settings.MaxOutboundControlFrames
 
 	if http2Settings.OnInvalidMessage != nil {
 		switch *http2Settings.OnInvalidMessage {

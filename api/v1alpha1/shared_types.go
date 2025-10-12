@@ -682,6 +682,26 @@ type HTTP2Settings struct {
 	// Default: TerminateConnection
 	// +optional
 	OnInvalidMessage *InvalidMessageAction `json:"onInvalidMessage,omitempty"`
+
+	// MaxOutboundFrames limits the number of pending outbound downstream frames of all types
+	// (frames that are waiting to be written into the socket). Exceeding this limit triggers
+	// flood mitigation and connection is terminated. The http2.outbound_flood stat tracks the
+	// number of terminated connections due to flood mitigation.
+	// If not set, the default value is 10000.
+	// +kubebuilder:validation:Minimum=1
+	// +kubebuilder:validation:Maximum=2147483647
+	// +optional
+	MaxOutboundFrames *uint32 `json:"maxOutboundFrames,omitempty"`
+
+	// MaxOutboundControlFrames limits the number of pending outbound downstream frames of types
+	// PING, SETTINGS and RST_STREAM, preventing high memory utilization when receiving continuous
+	// stream of these frames. Exceeding this limit triggers flood mitigation and connection is terminated.
+	// The http2.outbound_control_flood stat tracks the number of terminated connections due to flood mitigation.
+	// If not set, the default value is 1000.
+	// +kubebuilder:validation:Minimum=1
+	// +kubebuilder:validation:Maximum=2147483647
+	// +optional
+	MaxOutboundControlFrames *uint32 `json:"maxOutboundControlFrames,omitempty"`
 }
 
 // ResponseOverride defines the configuration to override specific responses with a custom one.

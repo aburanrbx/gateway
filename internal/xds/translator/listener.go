@@ -101,6 +101,12 @@ func http2ProtocolOptions(opts *ir.HTTP2Settings) *corev3.Http2ProtocolOptions {
 		InitialConnectionWindowSize: &wrapperspb.UInt32Value{
 			Value: ptr.Deref(opts.InitialConnectionWindowSize, http2InitialConnectionWindowSize),
 		},
+		MaxOutboundFrames: &wrapperspb.UInt32Value{
+			Value: ptr.Deref(opts.MaxOutboundFrames, 10000),
+		},
+		MaxOutboundControlFrames: &wrapperspb.UInt32Value{
+			Value: ptr.Deref(opts.MaxOutboundControlFrames, 1000),
+		},
 	}
 
 	if opts.ResetStreamOnError != nil {

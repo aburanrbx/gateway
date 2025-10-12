@@ -13,6 +13,8 @@
           initialConnectionWindowSize: 1048576
           initialStreamWindowSize: 65536
           maxConcurrentStreams: 100
+          maxOutboundControlFrames: 1000
+          maxOutboundFrames: 10000
         httpFilters:
         - name: envoy.filters.http.router
           typedConfig:
@@ -52,6 +54,8 @@
           initialConnectionWindowSize: 1048576
           initialStreamWindowSize: 65536
           maxConcurrentStreams: 100
+          maxOutboundControlFrames: 1000
+          maxOutboundFrames: 10000
         httpFilters:
         - name: envoy.filters.http.router
           typedConfig:
@@ -91,6 +95,8 @@
           initialConnectionWindowSize: 1048576
           initialStreamWindowSize: 65536
           maxConcurrentStreams: 100
+          maxOutboundControlFrames: 1000
+          maxOutboundFrames: 10000
         httpFilters:
         - name: envoy.filters.http.router
           typedConfig:
@@ -132,6 +138,8 @@
           initialConnectionWindowSize: 1048576
           initialStreamWindowSize: 65536
           maxConcurrentStreams: 100
+          maxOutboundControlFrames: 1000
+          maxOutboundFrames: 10000
         httpFilters:
         - name: envoy.filters.http.router
           typedConfig:

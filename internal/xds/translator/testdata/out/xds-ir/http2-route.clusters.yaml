@@ -30,6 +30,8 @@
           initialConnectionWindowSize: 524288000
           initialStreamWindowSize: 1048576
           maxConcurrentStreams: 200
+          maxOutboundControlFrames: 1000
+          maxOutboundFrames: 10000
           overrideStreamErrorOnInvalidHttpMessage: true
 - circuitBreakers:
     thresholds:
@@ -62,6 +64,8 @@
         http2ProtocolOptions:
           initialConnectionWindowSize: 1048576
           initialStreamWindowSize: 65536
+          maxOutboundControlFrames: 1000
+          maxOutboundFrames: 10000
 - circuitBreakers:
     thresholds:
     - maxRetries: 1024
@@ -94,6 +98,8 @@
           initialConnectionWindowSize: 524288000
           initialStreamWindowSize: 1048576
           maxConcurrentStreams: 200
+          maxOutboundControlFrames: 1000
+          maxOutboundFrames: 10000
           overrideStreamErrorOnInvalidHttpMessage: false
         httpProtocolOptions: {}
 - circuitBreakers:

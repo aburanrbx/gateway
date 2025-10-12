@@ -54,6 +54,8 @@
         http2ProtocolOptions:
           initialConnectionWindowSize: 1048576
           initialStreamWindowSize: 65536
+          maxOutboundControlFrames: 1000
+          maxOutboundFrames: 10000
         httpProtocolOptions: {}
       upstreamHttpProtocolOptions:
         autoSni: true
@@ -110,6 +112,8 @@
         http2ProtocolOptions:
           initialConnectionWindowSize: 1048576
           initialStreamWindowSize: 65536
+          maxOutboundControlFrames: 1000
+          maxOutboundFrames: 10000
         httpProtocolOptions: {}
       upstreamHttpProtocolOptions:
         autoSni: true
@@ -185,4 +189,6 @@
         http2ProtocolOptions:
           initialConnectionWindowSize: 1048576
           initialStreamWindowSize: 65536
+          maxOutboundControlFrames: 1000
+          maxOutboundFrames: 10000
         httpProtocolOptions: {}

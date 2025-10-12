@@ -13,6 +13,8 @@
           initialConnectionWindowSize: 1048576
           initialStreamWindowSize: 65536
           maxConcurrentStreams: 100
+          maxOutboundControlFrames: 1000
+          maxOutboundFrames: 10000
         httpFilters:
         - disabled: true
           name: envoy.filters.http.oauth2/securitypolicy/default/policy-for-first-route

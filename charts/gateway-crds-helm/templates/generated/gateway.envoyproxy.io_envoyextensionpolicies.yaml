@@ -1,4 +1,3 @@
-{{- if .Values.crds.envoyGateway.enabled }}
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -656,6 +655,28 @@ spec:
                               description: |-
                                 MaxConcurrentStreams sets the maximum number of concurrent streams allowed per connection.
                                 If not set, the default value is 100.
+                              format: int32
+                              maximum: 2147483647
+                              minimum: 1
+                              type: integer
+                            maxOutboundControlFrames:
+                              description: |-
+                                MaxOutboundControlFrames limits the number of pending outbound downstream frames of types
+                                PING, SETTINGS and RST_STREAM, preventing high memory utilization when receiving continuous
+                                stream of these frames. Exceeding this limit triggers flood mitigation and connection is terminated.
+                                The http2.outbound_control_flood stat tracks the number of terminated connections due to flood mitigation.
+                                If not set, the default value is 1000.
+                              format: int32
+                              maximum: 2147483647
+                              minimum: 1
+                              type: integer
+                            maxOutboundFrames:
+                              description: |-
+                                MaxOutboundFrames limits the number of pending outbound downstream frames of all types
+                                (frames that are waiting to be written into the socket). Exceeding this limit triggers
+                                flood mitigation and connection is terminated. The http2.outbound_flood stat tracks the
+                                number of terminated connections due to flood mitigation.
+                                If not set, the default value is 10000.
                               format: int32
                               maximum: 2147483647
                               minimum: 1
@@ -2001,4 +2022,3 @@ spec:
     storage: true
     subresources:
       status: {}
-{{- end }}

@@ -568,6 +568,10 @@ type HTTP2Settings struct {
 	MaxConcurrentStreams *uint32 `json:"maxConcurrentStreams,omitempty" yaml:"maxConcurrentStreams,omitempty"`
 	// ResetStreamOnError determines if a stream or connection is reset on messaging error.
 	ResetStreamOnError *bool `json:"resetStreamOnError,omitempty" yaml:"resetStreamOnError,omitempty"`
+	// MaxOutboundFrames limits the number of pending outbound downstream frames of all types.
+	MaxOutboundFrames *uint32 `json:"maxOutboundFrames,omitempty" yaml:"maxOutboundFrames,omitempty"`
+	// MaxOutboundControlFrames limits the number of pending outbound downstream frames of types PING, SETTINGS and RST_STREAM.
+	MaxOutboundControlFrames *uint32 `json:"maxOutboundControlFrames,omitempty" yaml:"maxOutboundControlFrames,omitempty"`
 }
 
 // ResponseOverride defines the configuration to override specific responses with a custom one.
